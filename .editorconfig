@@ -14,10 +14,10 @@ indent_size = 4
 [*.css]
 indent_size = 2
 
-# Templating
 [*.{js,ts,c,cpp,java}]
 indent_size = 4
 
+# Templating
 [*.{jsx.tsx}]
 indent_size = 2
 
