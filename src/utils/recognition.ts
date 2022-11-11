@@ -1,4 +1,7 @@
-export default {
+export interface MapProps{
+    [key: string]: string;
+}
+export const map: MapProps = {
     "analisa": "analisis",
     "azas": "asa",
     "antri": "antre",
@@ -38,4 +41,31 @@ export default {
     "jerafah": "jerapah",
     "jagad": "jagat",
     "jemaah": "jamaah"
+}
+
+export const list = Object.keys(map);
+
+export const regex = new RegExp(`(${ list.join('|') })`, 'ig');
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+
+export const createSpeechRecognition = function (){
+  const srec = new SpeechRecognition();
+  const srecList = new SpeechGrammarList();
+
+  // const words = [ 'analisis', 'analisa', 'asa', 'azas', 'antre', 'antri', 'asyik', 'asik', 'atlet', 'atlit', 
+  //                 'atmosfer', 'atmosfir', 'autentik', 'otentik', 'balsam', 'balsem', 'bus', 'bis', 'baterai', 'batre' ];
+  const words = list;
+  const grammar = `#JSGF V1.0; grammar baku; public <baku> = ${words.join(' | ')};`
+  srecList.addFromString(grammar, 1);
+
+  srec.grammars = srecList;
+  srec.continuous = true;
+  srec.lang = 'id-ID';
+  srec.interimResults = true;
+  srec.maxAlternatives = 1;
+
+  return srec;
 }
