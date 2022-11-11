@@ -9,9 +9,9 @@ import { MicRounded } from '@mui/icons-material';
 import { alpha } from '@mui/material/styles';
 import { useState, useMemo, useEffect } from 'react';
 
-const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-const SpeechGrammarList = window.SpeechGrammarList || webkitSpeechGrammarList;
-const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
 
 function createSpeechRecognition(){
   const srec = new SpeechRecognition();
@@ -36,10 +36,10 @@ function App(){
   const [text, setText] = useState("");
   const recognition = useMemo(createSpeechRecognition, []);
 
-  recognition.onstart = (ev) => setTrans(true);
-  recognition.onend = (ev) => setTrans(false);
+  recognition.onstart = (ev: any) => setTrans(true);
+  recognition.onend = (ev: any) => setTrans(false);
 
-  recognition.onresult = (ev) => {
+  recognition.onresult = (ev: any) => {
     const {resultIndex, results} = ev;
     const res = results[resultIndex];
     const trans = res[0];
@@ -53,7 +53,7 @@ function App(){
     // });
   };
 
-  recognition.onerror = (ev) => {
+  recognition.onerror = (ev: any) => {
     console.log([48, ev])
   }
 
