@@ -40,7 +40,40 @@ export const map: MapProps = {
 
     "jerafah": "jerapah",
     "jagad": "jagat",
-    "jemaah": "jamaah"
+    "jemaah": "jamaah",
+
+    cicak: 'cecak',
+    duren: 'durian',
+    ganjel: 'ganjal',
+    gatel: 'gatal',
+    karna: 'karena',
+
+    kebon: 'kebun',
+    rame: 'ramai',
+    rubuh: 'roboh',
+    asep: 'asap',
+    grobak: 'gerobak',
+
+    angus: 'hangus',
+    hisap: 'isap',
+    mahnet: 'magnet',
+    mangkok: 'mangkuk',
+    nomer: 'nomor',
+
+    resiko: 'risiko',
+    saos: 'saus',
+    beresih: 'bersih',
+    keristen: 'kristen',
+    azaz: 'asas',
+
+    asem: 'asam',
+    sodara: 'saudara',
+    udah: 'sudah',
+    praktek: 'praktik',
+    rubah: 'ubah',
+    
+    sekedar: 'sekadar',
+    ketapel: 'katapel'
 }
 
 export const list = Object.keys(map);
