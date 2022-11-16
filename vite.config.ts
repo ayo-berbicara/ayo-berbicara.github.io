@@ -8,5 +8,5 @@ export default defineConfig({
     tsconfigPaths(),
     react()
   ],
-  base: '/mari-membaca/'
+  base: '/'
 })
